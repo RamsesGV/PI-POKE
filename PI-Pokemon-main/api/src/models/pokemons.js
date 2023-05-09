@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => { 
-    sequelize.define('Pokemons', { 
+    sequelize.define('pokemons', { 
         ID: { 
             allowNul: false, 
             primaryKey: true,
