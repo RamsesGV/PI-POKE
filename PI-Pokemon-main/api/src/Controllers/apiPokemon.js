@@ -3,7 +3,7 @@ const axios = require('axios'); //Se importa el módulo axios que permite hacer 
 const apiPokemon = async () => { //Se define una función asincrónica llamada apiPokemon que no recibe parámetros.
     try {
         const pokemons = await axios 
-        .get('https://pokeapi.co/api/v2/pokemon?limit=50') //Se inicia un bloque de código try y se hace una solicitud HTTP GET a la PokeAPI a través de axios para obtener los datos de los primeros 50 pokémon disponibles.
+        .get('https://pokeapi.co/api/v2/pokemon?limit=100') //Se inicia un bloque de código try y se hace una solicitud HTTP GET a la PokeAPI a través de axios para obtener los datos de los primeros 50 pokémon disponibles.
         const secondUrlMap = await  pokemons.data.results.map(  pokemon  => {  // accedemos a la segunda propiedad del objeto data.results.url para acceder a los detalles del pokemon
             return pokemon.url
         })
@@ -19,9 +19,9 @@ const apiPokemon = async () => { //Se define una función asincrónica llamada a
                 name:urlResponse.data.name,
                 height:urlResponse.data.height,
                 weight:urlResponse.data.weight,
-                hp:urlResponse.data.stats[0].base_stat, //entramos al indice 0 donde se encuentra hp y la dmaos el valor que se encuentra en base_stat
-                attack:urlResponse.data.stats[1].base_stat,//igual que hp
-                speed:urlResponse.data.stats[5].base_stat,//igual que hp
+                hp:urlResponse.data.stats.find(({stat}) => stat.name === 'hp')?.base_stat, //haces destructurin al objeto stat y accedemos directamente a su propiedad name. 
+                attack:urlResponse.data.stats.find(({stat}) => stat.name === 'attack')?.base_stat,//igual que hp
+                speed:urlResponse.data.stats.find(({stat}) => stat.name === 'speed')?.base_stat,//igual que hp
                 types:urlResponse.data.types.map((type) => type.type.name),/*La línea de código types:urlResponse.data.types.map((type) => type.type.name) accede a la propiedad types de la respuesta de la API PokeAPI y usa el método map para transformar los objetos de tipo de cada Pokémon en un arreglo de nombres de tipos. Luego, este arreglo se guarda en la propiedad types de cada objeto de Pokémon en el arreglo final.*/
                 img:urlResponse.data.sprites.other['official-artwork'].front_default,
                 /*La razón por la que utiliza la sintaxis con corchetes cuadrados en lugar de la notación de puntos se debe a que "official-artwork" es una propiedad del objeto "other" que contiene un guión en su nombre.
