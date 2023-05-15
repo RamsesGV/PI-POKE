@@ -13,7 +13,7 @@ router.get('/' , async (req,res) => {
             if(selectPoke.length > 0) {
                 res.status(200).json(selectPoke)
             }else { 
-                res.status(400).send('The pokemon scape!')
+                res.status(400).send(`The Pokémon escaped or doesn't exist!`)
             }
         }else {
             res.json(listPoke)
