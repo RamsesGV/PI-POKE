@@ -15,6 +15,7 @@ const getPoke = async() => {
 
 module.exports = {
     getPoke
+    
 }
 //!En resumen,
 //! el código exporta una función llamada `getPoke` que obtiene los pokemons de la API y los de la base de datos.

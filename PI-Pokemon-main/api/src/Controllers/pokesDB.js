@@ -21,6 +21,8 @@ const pokemonsDB = async () => { //Se define la función pokemonsDB como una fun
                 Velocidad:pokemon.Velocidad,
                 Altura:pokemon.Altura,
                 Peso:pokemon.Peso,
+                Types:pokemon.types.map((type) => type.name),
+                CreatedInDB:pokemon.CreatedInDB
 
 
 
