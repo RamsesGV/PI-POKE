@@ -3,10 +3,10 @@ const { DataTypes } = require('sequelize')
 module.exports = (sequelize) => { 
     sequelize.define('pokemons', { 
         ID: { 
-            allowNul: false, 
+            type: DataTypes.UUID,               
+            defaultValue: DataTypes.UUIDV4,     
             primaryKey: true,
-            autoIncrement:true,
-            type:DataTypes.INTEGER
+            allowNull : false,
         },
         Nombre: { 
             type:DataTypes.STRING,
@@ -14,7 +14,8 @@ module.exports = (sequelize) => {
         },
         Imagen:{ 
             isUrl: true,
-            type:DataTypes.STRING
+            type:DataTypes.STRING,
+            defaultValue: 'https://i.pinimg.com/564x/6f/2f/be/6f2fbe0544586164149f17357634c434.jpg'
         },
         Vida: { 
             type: DataTypes.INTEGER,
