@@ -1,0 +1,92 @@
+@font-face { 
+    font-family: 'Pokemon'; 
+    src: url('./fonts/Pokemon\ Solid.ttf')
+}
+
+
+
+.ptittle {
+    font-family: 'Pokemon', cursive;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    color: #FFCB05;
+    position: relative;
+    animation: moveUpDown 2s linear infinite;
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.ptittle::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.buttonL { 
+    background-color: black;
+    border: none;
+    color: yellow;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Pokemon', cursive;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 100px;
+    position: relative;
+    animation: moveUpDown 2s linear infinite;
+}
+
+.back {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px;
+    width: 50%;
+    position: relative;
+    animation: moveUpDown 1s linear infinite;
+    
+}
+
+@media screen and (max-width: 800px) {
+    .ptittle {
+        font-size: 20px;
+    }
+    .buttonL {
+        font-size: 15px;
+    }
+    .back {
+        height: 30px;
+        display: none;
+    }
+    .landingContainer { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        background-image: url('https://th.bing.com/th/id/R.c777caf738ac087ca9b2d6930f0a3e5b?rik=NEM33%2ftnfH7%2boQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f6%2ff%2f1%2f53731.jpg&ehk=URd3wA%2bQ77esjnG%2farHMw8UhLBH582CBuCuY4O8nnt8%3d&risl=&pid=ImgRaw&r=0.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    }

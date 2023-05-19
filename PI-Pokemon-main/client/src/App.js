@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <Route exact path={'/'} component={landing} />
+      <Route exact path={'/'} component={landing}/>
     </div>
   );
 }
