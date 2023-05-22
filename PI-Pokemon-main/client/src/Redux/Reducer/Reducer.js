@@ -2,7 +2,7 @@ import {
     GET_POKEMONS,
     GET_POKE_DETAIL,
     GET_BY_POKENAME,
-    //POST_NEW_POKE ,
+    POST_NEW_POKE ,
     GET_POKE_TYPES,
     FILTER_CREATE_POKE,
     ORDER_BY_NAME,
@@ -46,7 +46,7 @@ switch(action.type) {
                 case GET_POKE_TYPES: 
                     return{ 
                     ...state,
-                    pokeDetail:action.payload,
+                    pokeTypes:action.payload,
 
                 }
 
@@ -81,7 +81,7 @@ switch(action.type) {
                                 const results = typeSelect.filter((pokemon) => state.allPokemons.includes(pokemon))
                                 return { 
                                     ...state,
-                                    pokemon:results,
+                                    pokemons:results,
 
                                 }
                 case ORDER_BY_NAME: 
@@ -156,14 +156,14 @@ switch(action.type) {
                     }
 
                     if(action.payload === 'created') { 
-                        const createdPokemons = state.allPokemons?.filter((poke) => typeof poke.id === 'string');
+                        const createdPokemons = state.allPokemons?.filter((poke) => typeof poke.id === "string");
                         return { 
                             ...state,
                             pokemons:createdPokemons
                         }
                     }
                     if(action.payload === 'api') { 
-                        const allApiPokemons = state.allPokemons?.filter((poke) => typeof poke.id === 'number');
+                        const allApiPokemons = state.allPokemons?.filter((poke) => typeof poke.id === "number" );
                         return{ 
                             ...state,
                             pokemons:allApiPokemons
@@ -186,6 +186,14 @@ switch(action.type) {
                     pokeDetail: {},
                     error: false,
                 }
+
+                case POST_NEW_POKE:
+                return {
+                    ...state,
+                    allPokemons: [...state.allPokemons, action.payload],
+                    pokemons: [...state.pokemons, action.payload]
+};
+
                     
                 
 

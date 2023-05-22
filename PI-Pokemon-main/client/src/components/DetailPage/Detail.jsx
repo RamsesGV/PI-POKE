@@ -25,9 +25,9 @@ return (
     {pokemon.length ? (
         <div className="detail">
         <div >
-        <h1  >Name: {pokemon[0].name.toUpperCase()}</h1>
+        <h1> Name: {pokemon[0].name.toUpperCase()} </h1>
         <img
-            src={pokemon[0].image}
+            src={pokemon[0].img}
             alt="Nothing Here!"
            // width={"200px"}
             //height={"250px"}
@@ -48,7 +48,7 @@ return (
         </div>
         </div>
     ) : (
-        <p>No se encotraron detalles de ese Pokemon!</p>
+        <p>Cargando....</p>
     )}
     </div>
 );
